@@ -1,0 +1,8 @@
+.rail {
+  composes: panel from "./styles/primitives.module.css";
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 8px;
+  color: var(--text);
+}

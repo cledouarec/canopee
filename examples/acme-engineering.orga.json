@@ -1,0 +1,169 @@
+{
+  "schemaVersion": 1,
+  "name": "Acme Engineering",
+  "taxonomy": {
+    "colorBy": "topology",
+    "dimensions": {
+      "topology": {
+        "label": "Type",
+        "values": {
+          "stream-aligned": "#cfe7ab",
+          "platform": "#aed8cb",
+          "enabling": "#d6ead0",
+          "complicated-subsystem": "#e6e8b4"
+        }
+      },
+      "domain": {
+        "label": "Domain",
+        "values": {
+          "commerce": "#9ecae1",
+          "growth": "#c6dbef",
+          "infrastructure": "#a1d99b"
+        }
+      }
+    },
+    "relationshipTypes": {
+      "collaboration": { "label": "Collaboration", "style": "solid" },
+      "x-as-a-service": { "label": "X-as-a-Service", "style": "dashed" },
+      "facilitating": { "label": "Facilitating", "style": "dotted" }
+    }
+  },
+  "teams": [
+    {
+      "id": "t-checkout",
+      "name": "Checkout",
+      "icon": "shopping-cart",
+      "mission": "Maximize conversion through the purchase funnel",
+      "scope": "Cart, payment selection, order confirmation",
+      "tags": { "topology": "stream-aligned", "domain": "commerce" },
+      "headcount": { "dev": 5, "pm": 1, "design": 1 },
+      "members": [
+        { "personId": "p-alice", "allocation": 100 },
+        { "personId": "p-bruno", "allocation": 80 }
+      ],
+      "position": { "x": 60, "y": 60 }
+    },
+    {
+      "id": "t-search",
+      "name": "Search & Discovery",
+      "icon": "search",
+      "mission": "Help customers find the right product fast",
+      "scope": "Search, recommendations, browse",
+      "tags": { "topology": "stream-aligned", "domain": "growth" },
+      "headcount": { "dev": 4, "pm": 1 },
+      "position": { "x": 360, "y": 60 }
+    },
+    {
+      "id": "t-mobile",
+      "name": "Mobile Apps",
+      "icon": "smartphone",
+      "mission": "Deliver the shopping experience on iOS and Android",
+      "scope": "Native apps, release pipeline",
+      "tags": { "topology": "stream-aligned", "domain": "commerce" },
+      "headcount": { "dev": 6, "pm": 1, "design": 1 },
+      "position": { "x": 660, "y": 60 }
+    },
+    {
+      "id": "t-platform",
+      "name": "Platform",
+      "icon": "server",
+      "mission": "Provide a paved road for product teams",
+      "scope": "CI/CD, runtime, developer portal",
+      "tags": { "topology": "platform", "domain": "infrastructure" },
+      "headcount": { "dev": 9 },
+      "position": { "x": 360, "y": 280 }
+    },
+    {
+      "id": "t-data",
+      "name": "Data Platform",
+      "icon": "database",
+      "mission": "Self-serve analytics and event pipelines",
+      "scope": "Warehouse, streaming, governance",
+      "tags": { "topology": "platform", "domain": "infrastructure" },
+      "headcount": { "dev": 6, "pm": 1 },
+      "position": { "x": 660, "y": 280 }
+    },
+    {
+      "id": "t-sre",
+      "name": "Reliability",
+      "icon": "shield",
+      "mission": "Raise reliability practice across the org",
+      "scope": "SLOs, incident response, observability",
+      "tags": { "topology": "enabling", "domain": "infrastructure" },
+      "headcount": { "dev": 4 },
+      "position": { "x": 60, "y": 280 }
+    },
+    {
+      "id": "t-payments",
+      "name": "Payments Core",
+      "icon": "credit-card",
+      "mission": "Operate the payment and ledger engine",
+      "scope": "PSP integrations, ledger, reconciliation",
+      "tags": { "topology": "complicated-subsystem", "domain": "commerce" },
+      "headcount": { "dev": 5 },
+      "position": { "x": 480, "y": 500 }
+    }
+  ],
+  "people": [
+    {
+      "id": "p-alice",
+      "name": "Alice Martin",
+      "role": "Tech Lead",
+      "skills": ["backend", "payments"]
+    },
+    { "id": "p-bruno", "name": "Bruno Costa", "role": "Engineer", "skills": ["frontend"] },
+    { "id": "p-chen", "name": "Chen Wei", "role": "Product Manager" }
+  ],
+  "relationships": [
+    {
+      "id": "r-1",
+      "source": "t-checkout",
+      "target": "t-platform",
+      "type": "x-as-a-service",
+      "directed": true
+    },
+    {
+      "id": "r-2",
+      "source": "t-search",
+      "target": "t-platform",
+      "type": "x-as-a-service",
+      "directed": true
+    },
+    {
+      "id": "r-3",
+      "source": "t-mobile",
+      "target": "t-platform",
+      "type": "x-as-a-service",
+      "directed": true
+    },
+    {
+      "id": "r-4",
+      "source": "t-checkout",
+      "target": "t-payments",
+      "type": "x-as-a-service",
+      "directed": true
+    },
+    {
+      "id": "r-5",
+      "source": "t-data",
+      "target": "t-platform",
+      "type": "collaboration",
+      "directed": false
+    },
+    {
+      "id": "r-6",
+      "source": "t-sre",
+      "target": "t-platform",
+      "type": "facilitating",
+      "directed": true
+    },
+    {
+      "id": "r-7",
+      "source": "t-mobile",
+      "target": "t-search",
+      "type": "collaboration",
+      "directed": false
+    }
+  ],
+  "scenarios": [{ "id": "current", "name": "Current", "teams": [], "relationships": [] }]
+}

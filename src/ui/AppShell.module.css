@@ -1,0 +1,84 @@
+.shell {
+  position: fixed;
+  inset: 0;
+  background-color: var(--bg);
+  /*
+   * Two soft radial halos for a subtle luminous glow, kept very close to the
+   * background colour (just a touch lighter than --bg). The grid itself lives
+   * in the canvas (React Flow), so it scales with zoom.
+   */
+  background-image:
+    radial-gradient(
+      900px 600px at 78% 12%,
+      color-mix(in srgb, white 12%, var(--bg)),
+      transparent 60%
+    ),
+    radial-gradient(
+      700px 520px at 15% 88%,
+      color-mix(in srgb, white 8%, var(--bg)),
+      transparent 60%
+    );
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: var(--text);
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/*
+ * On light themes the background is already near-white, so mixing white into
+ * --bg yields no perceptible contrast and the two halos disappear. Re-tint
+ * them with the accent colour (kept subtle) so the same luminous glow reads
+ * on light backgrounds too. `data-theme-base` is set by applyTheme().
+ */
+.shell[data-theme-base="light"] {
+  background-image:
+    radial-gradient(
+      900px 600px at 78% 12%,
+      color-mix(in srgb, var(--accent) 14%, var(--bg)),
+      transparent 60%
+    ),
+    radial-gradient(
+      700px 520px at 15% 88%,
+      color-mix(in srgb, var(--accent) 10%, var(--bg)),
+      transparent 60%
+    );
+}
+
+.layer {
+  position: absolute;
+  inset: 0;
+}
+
+.chrome {
+  position: absolute;
+  z-index: 10;
+}
+
+.top {
+  composes: chrome;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.left {
+  composes: chrome;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.right {
+  composes: chrome;
+  right: 16px;
+  top: 80px;
+  bottom: 16px;
+}
+
+.bottom {
+  composes: chrome;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+}

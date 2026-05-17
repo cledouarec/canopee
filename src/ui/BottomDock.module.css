@@ -1,0 +1,32 @@
+.dock {
+  composes: panel from "./styles/primitives.module.css";
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  padding: 8px;
+}
+
+.sep {
+  width: 1px;
+  height: 20px;
+  background: var(--border);
+}
+
+.zoom {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.zoomInput {
+  composes: pillGhost from "./styles/primitives.module.css";
+  width: 44px;
+  text-align: right;
+  padding: 6px 2px;
+}
+
+.pct {
+  color: var(--muted);
+}

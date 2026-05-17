@@ -1,0 +1,78 @@
+.scrim {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  /* The dim is NOT painted here — it would sit *behind* the translucent
+     dialog and bleed through, making it read dark (unlike the Inspector,
+     which floats over the bright graph). Instead the dialog casts the dim
+     as a viewport-spanning shadow, so the area directly behind it stays
+     bright and its frost matches the Inspector. */
+  color: var(--text);
+  z-index: 1000;
+}
+
+.dialog {
+  composes: panel from "./styles/primitives.module.css";
+  /* Same frosted surface as the Inspector (plain panel glass). The dim is
+     cast outward as a huge spread shadow instead of a full-screen scrim, so
+     nothing dark sits behind the glass — it frosts the bright graph and
+     reads identically to the Inspector. `100vmax` is clipped to the viewport
+     by .shell's overflow:hidden, so it covers exactly the screen. */
+  box-shadow:
+    var(--panel-shadow),
+    0 0 0 100vmax var(--scrim);
+  padding: 28px;
+  width: 420px;
+  display: grid;
+  gap: 16px;
+}
+
+/* Pill action that also lays out an icon + text row (see TopPill.iconBtn). */
+.createBtn {
+  composes: pill from "./styles/primitives.module.css";
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.appTitle {
+  margin: 0;
+  font-size: 20px;
+}
+
+.cancel {
+  composes: pillGhost from "./styles/primitives.module.css";
+  padding: 4px 10px;
+}
+
+.section {
+  display: grid;
+  gap: 8px;
+}
+
+.sectionTitle {
+  font-size: 13px;
+  margin: 0;
+  opacity: 0.7;
+}
+
+.label {
+  display: grid;
+  gap: 4px;
+  font-size: 12px;
+}
+
+.errors {
+  color: var(--error);
+  font-size: 12px;
+  margin: 0;
+  padding-left: 16px;
+}

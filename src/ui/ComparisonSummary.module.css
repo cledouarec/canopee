@@ -1,0 +1,30 @@
+.section {
+  composes: panel from "./styles/primitives.module.css";
+  padding: 12px;
+  color: var(--text);
+}
+
+.counters {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.counterLabel {
+  font-size: 11px;
+  opacity: 0.7;
+}
+
+.counterValue {
+  font-weight: 700;
+}
+
+.idList {
+  margin: 10px 0 0;
+  padding-left: 16px;
+  font-size: 12px;
+}
+
+.exportBtn {
+  margin-top: 10px;
+}
