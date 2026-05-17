@@ -1,6 +1,6 @@
 export type Id = string;
 
-export const SCHEMA_VERSION = 1;
+export const SCHEMA_VERSION = 2;
 export const CURRENT_SCENARIO_ID = 'current';
 /** Zoom for a brand-new organization (1 = 100%). */
 export const DEFAULT_ZOOM = 1;
