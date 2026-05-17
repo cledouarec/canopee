@@ -1,0 +1,33 @@
+/* Background colour is the data-driven team colour, set inline by the
+ * component; everything else (shape + theme-aware depth) lives here. */
+.card {
+  border-radius: 12px;
+  padding: 12px;
+  min-width: 200px;
+  box-shadow: var(--card-shadow);
+  /* Fixed dark ink: the background is the data-driven team colour, so the
+   * label must not follow --text (white on dark themes = unreadable).
+   * Kept in sync with NODE_TEXT_COLOR in viz/colors.ts. */
+  color: #1f2a24;
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.count {
+  font-size: 12px;
+  opacity: 0.8;
+  margin-top: 4px;
+}
+
+.members {
+  margin: 8px 0 0;
+  padding-left: 16px;
+}
+
+.member {
+  font-size: 12px;
+}

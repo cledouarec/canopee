@@ -1,0 +1,8 @@
+.wrap {
+  border-radius: 12px;
+}
+
+.selected {
+  composes: wrap;
+  outline: 2px solid var(--accent);
+}

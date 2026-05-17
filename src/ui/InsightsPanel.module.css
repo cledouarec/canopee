@@ -1,0 +1,39 @@
+.section {
+  display: grid;
+  gap: 14px;
+  color: var(--text);
+}
+
+.metrics {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.metricLabel {
+  font-size: 11px;
+  opacity: 0.7;
+}
+
+.metricValue {
+  font-weight: 700;
+}
+
+.heading {
+  font-size: 12px;
+  margin: 0 0 4px;
+}
+
+.empty {
+  opacity: 0.6;
+}
+
+.alerts {
+  margin: 0;
+  padding-left: 16px;
+  font-size: 12px;
+}
+
+.alertEmpty {
+  opacity: 0.6;
+}

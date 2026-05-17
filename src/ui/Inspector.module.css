@@ -1,0 +1,42 @@
+.aside {
+  composes: panel from './styles/primitives.module.css';
+  width: 320px;
+  height: 100%;
+  padding: 14px;
+  color: var(--text);
+  box-sizing: border-box;
+  overflow: auto;
+}
+
+/* Inspector and Insights are now merged: two stacked sections in one panel. */
+.block {
+  display: grid;
+  gap: 10px;
+}
+
+.sectionTitle {
+  font-size: 13px;
+  margin: 0;
+  opacity: 0.7;
+}
+
+.divider {
+  border: none;
+  border-top: 1px solid var(--panel-rim);
+  margin: 14px 0;
+}
+
+.empty {
+  opacity: 0.6;
+}
+
+.form {
+  display: grid;
+  gap: 10px;
+}
+
+.label {
+  display: grid;
+  gap: 4px;
+  font-size: 12px;
+}

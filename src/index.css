@@ -1,0 +1,34 @@
+/*
+ * Theme-independent design constant: every frosted panel shares this corner
+ * radius (was the `PANEL_RADIUS` JS const). Lives on :root so the shared
+ * `.panel` class resolves it everywhere, including portalled modals.
+ */
+:root {
+  --panel-radius: 16px;
+}
+
+/*
+ * Global focus styling: when a text field / select is being edited, the
+ * focus ring uses the theme accent colour (same as the buttons) instead of
+ * the browser default. `--accent` is set on the themed app root, so it
+ * resolves for every control inside it; the literal fallback keeps the ring
+ * sensible for anything rendered outside the themed subtree (e.g. portals).
+ */
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--accent, #15c08a);
+  outline-offset: 2px;
+}
+
+/*
+ * The native dropdown popup (its <option> rows) is drawn by the browser and
+ * ignores the <select>'s inline styles, so it defaulted to white/black and
+ * broke the theme. Force the opaque surface + text tokens (the dropdown must
+ * be opaque, so --surface, not the translucent glass).
+ */
+select option,
+select optgroup {
+  background-color: var(--surface, #ffffff);
+  color: var(--text, #1f2a24);
+}

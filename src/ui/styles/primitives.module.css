@@ -1,0 +1,88 @@
+/*
+ * Shared design-system primitives, extracted from the former
+ * `panelStyles.ts` / `buttonStyles.ts` JS style objects. Every value is a
+ * theme token (CSS custom property set by `applyTheme`) so the look follows
+ * the active theme and the reduced-transparency fallback keeps working.
+ *
+ * Components `composes:` these into their own scoped classes when they need
+ * the primitive plus extra layout (e.g. an icon button = pill + flex row).
+ */
+
+/*
+ * "Verre dépoli B" — the balanced frosted-glass surface. Background tint and
+ * blur ride on `--surface-glass` / `--surface-blur` (so reduced-transparency
+ * still degrades gracefully); the rim, drop shadow and inset sheen are the
+ * glass cues. The corner radius is shared so every panel matches.
+ */
+.panel {
+  background: var(--surface-glass);
+  -webkit-backdrop-filter: var(--surface-blur);
+  backdrop-filter: var(--surface-blur);
+  border: 1px solid var(--panel-rim);
+  border-radius: var(--panel-radius);
+  box-shadow: var(--panel-shadow);
+}
+
+/* Pill shape shared by every button/select in the frosted bars. */
+.pillBase {
+  border: none;
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Filled action / selected toggle entry. */
+.pill {
+  composes: pillBase;
+  white-space: nowrap;
+  flex-shrink: 0;
+  background: var(--accent);
+  color: var(--accent-text);
+}
+/* Disabled actions: was an inline `opacity` ternary on each call site. */
+.pill:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+/* Inactive toggle / secondary (transparent so a group reads as a segment). */
+.pillGhost {
+  composes: pillBase;
+  white-space: nowrap;
+  flex-shrink: 0;
+  background: transparent;
+  color: var(--text);
+}
+.pillGhost:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+/*
+ * Destructive variant — now a theme token (`--danger`) instead of a fixed
+ * hex, so it tunes per theme while staying unmistakably "destructive".
+ */
+.pillDanger {
+  composes: pillBase;
+  white-space: nowrap;
+  flex-shrink: 0;
+  background: var(--danger);
+  color: var(--danger-text);
+}
+.pillDanger:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+/* Dropdowns / text inputs reuse the pill shape, transparent like a ghost. */
+.pillSelect {
+  composes: pillBase;
+  background: transparent;
+  color: var(--text);
+}
+
+/* Text-input affordance modifier (a select-shaped <input> takes a caret). */
+.field {
+  cursor: text;
+}

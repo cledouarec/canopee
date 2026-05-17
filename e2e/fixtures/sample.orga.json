@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "name": "Sample Org",
+  "taxonomy": {
+    "colorBy": "topology",
+    "dimensions": {
+      "topology": {
+        "label": "Type",
+        "values": {
+          "stream-aligned": "#cfe7ab",
+          "platform": "#aed8cb",
+          "enabling": "#d6ead0",
+          "complicated-subsystem": "#e6e8b4"
+        }
+      }
+    },
+    "relationshipTypes": {
+      "collaboration": { "label": "Collaboration", "style": "solid" },
+      "x-as-a-service": { "label": "X-as-a-Service", "style": "dashed" }
+    }
+  },
+  "teams": [
+    {
+      "id": "t-checkout",
+      "name": "Checkout",
+      "mission": "Maximize conversion",
+      "tags": { "topology": "stream-aligned" },
+      "headcount": { "dev": 5, "pm": 1 }
+    },
+    {
+      "id": "t-platform",
+      "name": "Platform",
+      "tags": { "topology": "platform" },
+      "headcount": { "dev": 8 }
+    }
+  ],
+  "people": [],
+  "relationships": [
+    {
+      "id": "r-1",
+      "source": "t-checkout",
+      "target": "t-platform",
+      "type": "x-as-a-service",
+      "directed": true
+    }
+  ],
+  "scenarios": [{ "id": "current", "name": "Current", "teams": [], "relationships": [] }]
+}
