@@ -1,12 +1,12 @@
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
-import { render, screen, act } from '@testing-library/react';
+import { act, render, screen } from '@testing-library/react';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 vi.mock('reactflow', () => import('@/test/reactFlowMock'));
 
-import { AppShell } from './AppShell';
 import { canopeeStore } from '@/store';
-import { themeStore } from '@/theme/useTheme';
 import { resetStores } from '@/test/resetStores';
+import { themeStore } from '@/theme/useTheme';
+import { AppShell } from './AppShell';
 
 beforeEach(() => {
   act(() => {

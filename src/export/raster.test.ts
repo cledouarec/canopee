@@ -1,5 +1,5 @@
-import { describe, it, expect, vi } from 'vitest';
-import { svgToPngDataUrl, svgDataUrl } from './raster';
+import { describe, expect, it, vi } from 'vitest';
+import { svgDataUrl, svgToPngDataUrl } from './raster';
 
 describe('svgDataUrl', () => {
   it('base64-encodes the SVG as a data URL', () => {
@@ -19,10 +19,7 @@ describe('svgToPngDataUrl', () => {
       expect(h).toBe(50);
       return 'data:image/png;base64,ZZZ';
     });
-    const out = await svgToPngDataUrl(
-      '<svg width="100" height="50"><rect/></svg>',
-      encode,
-    );
+    const out = await svgToPngDataUrl('<svg width="100" height="50"><rect/></svg>', encode);
     expect(out).toBe('data:image/png;base64,ZZZ');
     expect(encode).toHaveBeenCalledOnce();
   });
@@ -34,8 +31,8 @@ describe('svgToPngDataUrl', () => {
   });
 
   it('throws a clear error when no encoder is available', async () => {
-    await expect(
-      svgToPngDataUrl('<svg width="10" height="10"></svg>', undefined),
-    ).rejects.toThrow(/PNG/);
+    await expect(svgToPngDataUrl('<svg width="10" height="10"></svg>', undefined)).rejects.toThrow(
+      /PNG/,
+    );
   });
 });

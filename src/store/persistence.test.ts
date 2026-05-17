@@ -1,14 +1,14 @@
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+import { teamTopologies } from '@/frameworks/teamTopologies';
+import { CURRENT_SCENARIO_ID, type Organization, SCHEMA_VERSION } from '@/model/types';
 import {
-  MemoryStorage,
   debounce,
   loadWorkspace,
+  MemoryStorage,
+  type StorageLike,
   saveWorkspace,
   WORKSPACE_KEY,
-  type StorageLike,
 } from './persistence';
-import { teamTopologies } from '@/frameworks/teamTopologies';
-import { SCHEMA_VERSION, CURRENT_SCENARIO_ID, type Organization } from '@/model/types';
 
 function sampleOrg(): Organization {
   return {

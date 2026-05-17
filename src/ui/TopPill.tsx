@@ -1,9 +1,9 @@
-import { useState } from 'react';
 import { Building2, Download, Image, LogOut, Moon, Sun } from 'lucide-react';
-import { useCanopee } from '@/viz/useCanopee';
+import { useState } from 'react';
 import { useTheme } from '@/theme/useTheme';
-import { ExportModal } from './ExportModal';
+import { useCanopee } from '@/viz/useCanopee';
 import { shortDimensionLabel } from './dimensionLabel';
+import { ExportModal } from './ExportModal';
 import prim from './styles/primitives.module.css';
 import s from './TopPill.module.css';
 

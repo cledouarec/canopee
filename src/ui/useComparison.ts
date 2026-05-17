@@ -1,5 +1,5 @@
 import { useStore } from 'zustand';
-import { createComparisonStore, type ComparisonState } from './comparisonStore';
+import { type ComparisonState, createComparisonStore } from './comparisonStore';
 
 /** Production singleton comparison store (transient, not persisted). */
 export const comparisonStore = createComparisonStore();

@@ -1,14 +1,11 @@
-import { describe, it, expect, vi } from 'vitest';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
+import { describe, expect, it, vi } from 'vitest';
 import { LeftRail } from './LeftRail';
 
 describe('LeftRail', () => {
   it('renders the view buttons and reports the active one', () => {
     render(<LeftRail active="graph" onSelect={() => {}} />);
-    expect(screen.getByRole('button', { name: 'Graph' })).toHaveAttribute(
-      'aria-pressed',
-      'true',
-    );
+    expect(screen.getByRole('button', { name: 'Graph' })).toHaveAttribute('aria-pressed', 'true');
   });
 
   it('calls onSelect when a view is clicked', () => {

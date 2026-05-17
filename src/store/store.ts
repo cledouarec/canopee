@@ -7,22 +7,22 @@ import {
   type Relationship,
   type Team,
 } from '@/model/types';
-import { serializeOrg, parseOrg } from '@/serialization/serialize';
-import { createHistory } from './history';
+import { parseOrg, serializeOrg } from '@/serialization/serialize';
 import {
   createOrg,
-  renameOrg,
-  setColorBy,
-  upsertTeam,
-  removeTeam,
-  upsertRelationship,
-  removeRelationship,
-  upsertPerson,
-  removePerson,
   createScenario,
-  renameScenario,
   deleteScenario,
+  removePerson,
+  removeRelationship,
+  removeTeam,
+  renameOrg,
+  renameScenario,
+  setColorBy,
+  upsertPerson,
+  upsertRelationship,
+  upsertTeam,
 } from './edits';
+import { createHistory } from './history';
 
 export type SelectedEntity =
   | { kind: 'team'; id: Id }

@@ -105,20 +105,65 @@
     }
   ],
   "people": [
-    { "id": "p-alice", "name": "Alice Martin", "role": "Tech Lead", "skills": ["backend", "payments"] },
+    {
+      "id": "p-alice",
+      "name": "Alice Martin",
+      "role": "Tech Lead",
+      "skills": ["backend", "payments"]
+    },
     { "id": "p-bruno", "name": "Bruno Costa", "role": "Engineer", "skills": ["frontend"] },
     { "id": "p-chen", "name": "Chen Wei", "role": "Product Manager" }
   ],
   "relationships": [
-    { "id": "r-1", "source": "t-checkout", "target": "t-platform", "type": "x-as-a-service", "directed": true },
-    { "id": "r-2", "source": "t-search", "target": "t-platform", "type": "x-as-a-service", "directed": true },
-    { "id": "r-3", "source": "t-mobile", "target": "t-platform", "type": "x-as-a-service", "directed": true },
-    { "id": "r-4", "source": "t-checkout", "target": "t-payments", "type": "x-as-a-service", "directed": true },
-    { "id": "r-5", "source": "t-data", "target": "t-platform", "type": "collaboration", "directed": false },
-    { "id": "r-6", "source": "t-sre", "target": "t-platform", "type": "facilitating", "directed": true },
-    { "id": "r-7", "source": "t-mobile", "target": "t-search", "type": "collaboration", "directed": false }
+    {
+      "id": "r-1",
+      "source": "t-checkout",
+      "target": "t-platform",
+      "type": "x-as-a-service",
+      "directed": true
+    },
+    {
+      "id": "r-2",
+      "source": "t-search",
+      "target": "t-platform",
+      "type": "x-as-a-service",
+      "directed": true
+    },
+    {
+      "id": "r-3",
+      "source": "t-mobile",
+      "target": "t-platform",
+      "type": "x-as-a-service",
+      "directed": true
+    },
+    {
+      "id": "r-4",
+      "source": "t-checkout",
+      "target": "t-payments",
+      "type": "x-as-a-service",
+      "directed": true
+    },
+    {
+      "id": "r-5",
+      "source": "t-data",
+      "target": "t-platform",
+      "type": "collaboration",
+      "directed": false
+    },
+    {
+      "id": "r-6",
+      "source": "t-sre",
+      "target": "t-platform",
+      "type": "facilitating",
+      "directed": true
+    },
+    {
+      "id": "r-7",
+      "source": "t-mobile",
+      "target": "t-search",
+      "type": "collaboration",
+      "directed": false
+    }
   ],
-  "scenarios": [
-    { "id": "current", "name": "Current", "teams": [], "relationships": [] }
-  ]
+  "scenarios": [{ "id": "current", "name": "Current", "teams": [], "relationships": [] }]
 }

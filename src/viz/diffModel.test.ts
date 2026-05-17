@@ -1,12 +1,7 @@
-import { describe, it, expect } from 'vitest';
-import {
-  compareScenarios,
-  teamStatus,
-  relStatus,
-  comparisonSummaryText,
-} from './diffModel';
-import { CURRENT_SCENARIO_ID, type Organization } from '@/model/types';
+import { describe, expect, it } from 'vitest';
 import { teamTopologies } from '@/frameworks/teamTopologies';
+import { CURRENT_SCENARIO_ID, type Organization } from '@/model/types';
+import { compareScenarios, comparisonSummaryText, relStatus, teamStatus } from './diffModel';
 
 function org(): Organization {
   return {

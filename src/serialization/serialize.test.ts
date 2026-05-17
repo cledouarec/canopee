@@ -1,7 +1,7 @@
-import { describe, it, expect } from 'vitest';
-import { serializeOrg, parseOrg, OrgParseError } from './serialize';
+import { describe, expect, it } from 'vitest';
 import { teamTopologies } from '@/frameworks/teamTopologies';
-import { SCHEMA_VERSION, CURRENT_SCENARIO_ID, type Organization } from '@/model/types';
+import { CURRENT_SCENARIO_ID, type Organization, SCHEMA_VERSION } from '@/model/types';
+import { OrgParseError, parseOrg, serializeOrg } from './serialize';
 
 function sampleOrg(): Organization {
   return {

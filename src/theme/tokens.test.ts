@@ -1,6 +1,6 @@
-import { describe, it, expect } from 'vitest';
-import { themeCssVars } from './tokens';
+import { describe, expect, it } from 'vitest';
 import { getTheme } from './registry';
+import { themeCssVars } from './tokens';
 
 const sage = getTheme('sage-light')!;
 

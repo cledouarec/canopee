@@ -1,8 +1,8 @@
-import { describe, it, expect } from 'vitest';
-import { buildGraph } from './graphModel';
-import { UNCATEGORIZED_COLOR } from './colors';
-import type { ViewPrefs } from './viewPrefs';
+import { describe, expect, it } from 'vitest';
 import type { ResolvedState, Taxonomy, XY } from '@/model/types';
+import { UNCATEGORIZED_COLOR } from './colors';
+import { buildGraph } from './graphModel';
+import type { ViewPrefs } from './viewPrefs';
 
 const taxonomy: Taxonomy = {
   colorBy: 'topology',

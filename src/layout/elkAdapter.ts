@@ -1,6 +1,6 @@
 import ELK from 'elkjs/lib/elk.bundled.js';
 import type { ResolvedState, Taxonomy } from '@/model/types';
-import { NODE_HEIGHT, NODE_WIDTH, type LayoutMode, type XY } from './types';
+import { type LayoutMode, NODE_HEIGHT, NODE_WIDTH, type XY } from './types';
 
 export interface LayoutOptions {
   /** Required for `bands` (groups by `taxonomy.colorBy`). */
@@ -92,9 +92,7 @@ export async function computeLayout(
     case 'lr':
       return elkLayout(state, 'RIGHT');
     case 'bands':
-      return options.taxonomy
-        ? bandsLayout(state, options.taxonomy)
-        : freeLayout(state);
+      return options.taxonomy ? bandsLayout(state, options.taxonomy) : freeLayout(state);
     default: {
       const never: never = mode;
       throw new Error(`Unknown layout mode: ${String(never)}`);

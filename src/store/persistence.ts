@@ -1,6 +1,6 @@
 import type { Organization } from '@/model/types';
-import { organizationSchema } from '@/serialization/schema';
 import { migrate } from '@/serialization/migrate';
+import { organizationSchema } from '@/serialization/schema';
 
 /** Minimal subset of the Web Storage API the app depends on. */
 export interface StorageLike {
@@ -50,10 +50,7 @@ export interface Debounced<A extends unknown[]> {
 }
 
 /** Trailing-edge debounce with `flush`/`cancel`, used for autosave. */
-export function debounce<A extends unknown[]>(
-  fn: (...args: A) => void,
-  ms: number,
-): Debounced<A> {
+export function debounce<A extends unknown[]>(fn: (...args: A) => void, ms: number): Debounced<A> {
   let timer: ReturnType<typeof setTimeout> | null = null;
   let lastArgs: A | null = null;
 

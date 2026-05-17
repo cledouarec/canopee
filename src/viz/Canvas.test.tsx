@@ -1,13 +1,13 @@
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
-import { render, waitFor, act } from '@testing-library/react';
+import { act, render, waitFor } from '@testing-library/react';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { rfCapture } from '@/test/reactFlowMock';
 import { resetStores } from '@/test/resetStores';
 
 // Mock React Flow: assert the data model handed to the canvas (spec §12).
 vi.mock('reactflow', () => import('@/test/reactFlowMock'));
 
-import { Canvas } from './Canvas';
 import { canopeeStore } from '@/store';
+import { Canvas } from './Canvas';
 
 beforeEach(() => {
   rfCapture.nodes = undefined;
@@ -17,7 +17,11 @@ beforeEach(() => {
     canopeeStore.getState().upsertTeam({ id: 't-1', name: 'A', tags: {}, headcount: { dev: 3 } });
     canopeeStore.getState().upsertTeam({ id: 't-2', name: 'B', tags: {}, headcount: { dev: 2 } });
     canopeeStore.getState().upsertRelationship({
-      id: 'r-1', source: 't-1', target: 't-2', type: 'collaboration', directed: true,
+      id: 'r-1',
+      source: 't-1',
+      target: 't-2',
+      type: 'collaboration',
+      directed: true,
     });
   });
 });

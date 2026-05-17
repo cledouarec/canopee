@@ -1,6 +1,6 @@
-import { describe, it, expect } from 'vitest';
-import { buildGraphSvg } from './graphSvg';
+import { describe, expect, it } from 'vitest';
 import type { ResolvedState, Taxonomy, XY } from '@/model/types';
+import { buildGraphSvg } from './graphSvg';
 import type { ExportThemeTokens } from './types';
 
 const taxonomy: Taxonomy = {
@@ -69,7 +69,13 @@ describe('buildGraphSvg', () => {
   });
 
   it('handles an empty organization', () => {
-    const svg = buildGraphSvg({ teams: [], relationships: [] }, taxonomy, new Map(), tokens, 'theme');
+    const svg = buildGraphSvg(
+      { teams: [], relationships: [] },
+      taxonomy,
+      new Map(),
+      tokens,
+      'theme',
+    );
     expect(svg.startsWith('<svg')).toBe(true);
   });
 });

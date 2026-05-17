@@ -1,6 +1,6 @@
-import { describe, it, expect } from 'vitest';
-import { computeLayout } from './elkAdapter';
+import { describe, expect, it } from 'vitest';
 import type { ResolvedState } from '@/model/types';
+import { computeLayout } from './elkAdapter';
 
 const state: ResolvedState = {
   teams: [

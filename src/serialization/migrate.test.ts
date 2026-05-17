@@ -1,6 +1,6 @@
-import { describe, it, expect } from 'vitest';
-import { migrate, FutureSchemaError } from './migrate';
+import { describe, expect, it } from 'vitest';
 import { SCHEMA_VERSION } from '@/model/types';
+import { FutureSchemaError, migrate } from './migrate';
 
 describe('migrate', () => {
   it('returns the object unchanged when already at current version', () => {

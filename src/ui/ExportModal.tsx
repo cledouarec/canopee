@@ -1,20 +1,20 @@
 import { useEffect, useMemo, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { resolveScenario } from '@/scenarios/resolve';
-import { computeLayout } from '@/layout/elkAdapter';
-import type { Id, XY } from '@/model/types';
-import { useCanopee } from '@/viz/useCanopee';
-import { useTheme } from '@/theme/useTheme';
-import { buildGraphSvg } from '@/export/graphSvg';
 import { buildDirectorySvg, type DirectoryLayout } from '@/export/directorySvg';
-import { svgToPngDataUrl, domPngEncoder } from '@/export/raster';
 import { downloadFile } from '@/export/download';
+import { buildGraphSvg } from '@/export/graphSvg';
+import { domPngEncoder, svgToPngDataUrl } from '@/export/raster';
 import type {
   ExportBackground,
   ExportContent,
   ExportFormat,
   ExportThemeTokens,
 } from '@/export/types';
+import { computeLayout } from '@/layout/elkAdapter';
+import type { Id, XY } from '@/model/types';
+import { resolveScenario } from '@/scenarios/resolve';
+import { useTheme } from '@/theme/useTheme';
+import { useCanopee } from '@/viz/useCanopee';
 import s from './ExportModal.module.css';
 
 export function ExportModal({ onClose }: { onClose: () => void }): JSX.Element {
@@ -66,8 +66,7 @@ export function ExportModal({ onClose }: { onClose: () => void }): JSX.Element {
       : buildDirectorySvg(state, org.taxonomy, tokens, dirLayout, background);
   }, [state, org, content, positions, dirLayout, background, tokens]);
 
-  const baseName = (): string =>
-    (org?.name || 'canopee').replace(/\s+/g, '-').toLowerCase();
+  const baseName = (): string => (org?.name || 'canopee').replace(/\s+/g, '-').toLowerCase();
 
   /** Synchronous so the SVG download stays in the click's user activation. */
   function exportNow(): void {

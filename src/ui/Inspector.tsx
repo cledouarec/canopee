@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react';
 import type { Team } from '@/model/types';
 import { useCanopee } from '@/viz/useCanopee';
 import { InsightsPanel } from './InsightsPanel';
-import prim from './styles/primitives.module.css';
 import s from './Inspector.module.css';
+import prim from './styles/primitives.module.css';
 
 export function Inspector(): JSX.Element {
   const org = useCanopee((s) => s.org);

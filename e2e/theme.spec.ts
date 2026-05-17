@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { expect, test } from '@playwright/test';
 
 test('theme choice persists across reload; SVG export works', async ({ page }) => {
   // Fresh browser context already has empty storage — do NOT clear via
@@ -12,9 +12,7 @@ test('theme choice persists across reload; SVG export works', async ({ page }) =
 
   // Sun/moon toggle: from the default light theme the button switches to dark.
   await page.getByRole('button', { name: 'Switch to dark theme' }).click();
-  await expect(
-    page.getByRole('button', { name: 'Switch to light theme' }),
-  ).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Switch to light theme' })).toBeVisible();
 
   // Wait for the debounced workspace autosave to flush before reloading,
   // otherwise the org would not be restored. Key mirrors
@@ -26,9 +24,7 @@ test('theme choice persists across reload; SVG export works', async ({ page }) =
   await page.reload();
   await expect(page.getByRole('toolbar')).toBeVisible();
   // The dark theme persisted, so the button still offers the switch to light.
-  await expect(
-    page.getByRole('button', { name: 'Switch to light theme' }),
-  ).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Switch to light theme' })).toBeVisible();
 
   await page.getByRole('button', { name: 'Export image' }).click();
   const dialog = page.getByRole('dialog', { name: 'Export image' });

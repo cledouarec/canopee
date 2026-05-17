@@ -1,6 +1,6 @@
 import type { Organization } from '@/model/types';
-import { organizationSchema } from './schema';
 import { migrate } from './migrate';
+import { organizationSchema } from './schema';
 
 export interface OrgIssue {
   path: string;

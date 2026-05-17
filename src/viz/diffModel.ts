@@ -1,6 +1,6 @@
 import type { Id, Organization, ResolvedState } from '@/model/types';
-import { resolveScenario } from '@/scenarios/resolve';
 import { diffStates, type StateDiff } from '@/scenarios/diff';
+import { resolveScenario } from '@/scenarios/resolve';
 
 export type TeamStatus = 'added' | 'removed' | 'modified' | 'unchanged';
 export type RelStatus = 'added' | 'removed' | 'unchanged';
@@ -12,11 +12,7 @@ export interface Comparison {
 }
 
 /** Resolve both scenarios and diff left (before) → right (after). */
-export function compareScenarios(
-  org: Organization,
-  leftId: Id,
-  rightId: Id,
-): Comparison {
+export function compareScenarios(org: Organization, leftId: Id, rightId: Id): Comparison {
   const left = resolveScenario(org, leftId);
   const right = resolveScenario(org, rightId);
   return { left, right, diff: diffStates(left, right) };

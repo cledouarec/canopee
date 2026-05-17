@@ -1,15 +1,15 @@
-import { describe, it, expect } from 'vitest';
+import { describe, expect, it } from 'vitest';
+import { CURRENT_SCENARIO_ID, type Organization, type Team } from '@/model/types';
+import { resolveScenario } from '@/scenarios/resolve';
 import {
   createOrg,
-  upsertTeam,
-  removeTeam,
-  upsertRelationship,
-  removeRelationship,
-  upsertPerson,
   removePerson,
+  removeRelationship,
+  removeTeam,
+  upsertPerson,
+  upsertRelationship,
+  upsertTeam,
 } from './edits';
-import { resolveScenario } from '@/scenarios/resolve';
-import { CURRENT_SCENARIO_ID, type Organization, type Team } from '@/model/types';
 
 function team(id: string, devs: number): Team {
   return { id, name: id, tags: {}, headcount: { dev: devs } };
@@ -29,10 +29,7 @@ function baseOrg(): Organization {
   });
   return {
     ...org,
-    scenarios: [
-      ...org.scenarios,
-      { id: 'v', name: 'Variant', teams: [], relationships: [] },
-    ],
+    scenarios: [...org.scenarios, { id: 'v', name: 'Variant', teams: [], relationships: [] }],
   };
 }
 
@@ -62,13 +59,19 @@ describe('team edits on a variant scenario (deltas, no chaining)', () => {
   it('modifying a base team is recorded as a delta, current untouched', () => {
     const org = upsertTeam(baseOrg(), 'v', team('t-1', 7));
     expect(resolveScenario(org, 'v').teams.find((t) => t.id === 't-1')!.headcount.dev).toBe(7);
-    expect(resolveScenario(org, CURRENT_SCENARIO_ID).teams.find((t) => t.id === 't-1')!.headcount.dev).toBe(5);
+    expect(
+      resolveScenario(org, CURRENT_SCENARIO_ID).teams.find((t) => t.id === 't-1')!.headcount.dev,
+    ).toBe(5);
   });
 
   it('removing a base team marks it removed in the variant only', () => {
     const org = removeTeam(baseOrg(), 'v', 't-2');
     expect(resolveScenario(org, 'v').teams.map((t) => t.id)).toEqual(['t-1']);
-    expect(resolveScenario(org, CURRENT_SCENARIO_ID).teams.map((t) => t.id).sort()).toEqual(['t-1', 't-2']);
+    expect(
+      resolveScenario(org, CURRENT_SCENARIO_ID)
+        .teams.map((t) => t.id)
+        .sort(),
+    ).toEqual(['t-1', 't-2']);
   });
 
   it('re-upserting a removed base team un-deletes it in the variant', () => {

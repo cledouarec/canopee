@@ -1,5 +1,5 @@
-import type { StorageLike } from '@/store';
 import type { LayoutMode } from '@/layout/types';
+import type { StorageLike } from '@/store';
 
 /** UI-only view state — NOT persisted in the .orga.json file (spec §7). */
 export interface ViewPrefs {
@@ -38,10 +38,7 @@ export function loadViewPrefs(storage: StorageLike): ViewPrefs {
   const o = p as Record<string, unknown>;
   if (!LAYOUT_MODES.includes(o.layoutMode as LayoutMode)) return DEFAULT_VIEW_PREFS;
   if (typeof o.expandAll !== 'boolean') return DEFAULT_VIEW_PREFS;
-  if (
-    !Array.isArray(o.expandedTeamIds) ||
-    !o.expandedTeamIds.every((x) => typeof x === 'string')
-  ) {
+  if (!Array.isArray(o.expandedTeamIds) || !o.expandedTeamIds.every((x) => typeof x === 'string')) {
     return DEFAULT_VIEW_PREFS;
   }
   return {

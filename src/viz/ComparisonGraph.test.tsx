@@ -1,17 +1,19 @@
-import { describe, it, expect, vi } from 'vitest';
 import { render } from '@testing-library/react';
+import { describe, expect, it, vi } from 'vitest';
 import { rfCapture as rf } from '@/test/reactFlowMock';
 
 vi.mock('reactflow', () => import('@/test/reactFlowMock'));
 
+import { teamTopologies } from '@/frameworks/teamTopologies';
+import { CURRENT_SCENARIO_ID, type Organization } from '@/model/types';
 import { ComparisonGraph } from './ComparisonGraph';
 import { compareScenarios } from './diffModel';
-import { CURRENT_SCENARIO_ID, type Organization } from '@/model/types';
-import { teamTopologies } from '@/frameworks/teamTopologies';
 
 function org(): Organization {
   return {
-    schemaVersion: 1, name: 'Acme', taxonomy: teamTopologies.buildTaxonomy(),
+    schemaVersion: 1,
+    name: 'Acme',
+    taxonomy: teamTopologies.buildTaxonomy(),
     teams: [
       { id: 't-1', name: 'A', tags: {}, headcount: {} },
       { id: 't-2', name: 'B', tags: {}, headcount: {} },
@@ -21,8 +23,12 @@ function org(): Organization {
     scenarios: [
       { id: CURRENT_SCENARIO_ID, name: 'Current', teams: [], relationships: [] },
       {
-        id: 's-1', name: 'V', teams: [{ id: 't-1', name: 'A2', tags: {}, headcount: {} }],
-        relationships: [], removedTeamIds: ['t-2'], removedRelationshipIds: ['r-1'],
+        id: 's-1',
+        name: 'V',
+        teams: [{ id: 't-1', name: 'A2', tags: {}, headcount: {} }],
+        relationships: [],
+        removedTeamIds: ['t-2'],
+        removedRelationshipIds: ['r-1'],
       },
     ],
     view: { zoom: 1 },

@@ -1,12 +1,10 @@
 import type { StorageLike } from '@/store';
-import type { Theme } from './types';
 import { getTheme } from './registry';
+import type { Theme } from './types';
 
 export const THEME_KEY = 'canopee:theme:v1';
 
-export type ThemePref =
-  | { kind: 'builtin'; id: string }
-  | { kind: 'custom'; theme: Theme };
+export type ThemePref = { kind: 'builtin'; id: string } | { kind: 'custom'; theme: Theme };
 
 export function saveThemePref(storage: StorageLike, pref: ThemePref): void {
   try {

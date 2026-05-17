@@ -1,5 +1,5 @@
-import { describe, it, expect } from 'vitest';
-import { THEMES, getTheme, DEFAULT_THEME_ID } from './registry';
+import { describe, expect, it } from 'vitest';
+import { DEFAULT_THEME_ID, getTheme, THEMES } from './registry';
 import { TOKEN_KEYS } from './types';
 
 describe('theme registry', () => {

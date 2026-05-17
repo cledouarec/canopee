@@ -1,5 +1,5 @@
 .rail {
-  composes: panel from './styles/primitives.module.css';
+  composes: panel from "./styles/primitives.module.css";
   display: flex;
   flex-direction: column;
   gap: 6px;

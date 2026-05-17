@@ -1,6 +1,6 @@
-import { describe, it, expect } from 'vitest';
-import { buildDirectorySvg } from './directorySvg';
+import { describe, expect, it } from 'vitest';
 import type { ResolvedState, Taxonomy } from '@/model/types';
+import { buildDirectorySvg } from './directorySvg';
 import type { ExportThemeTokens } from './types';
 
 const taxonomy: Taxonomy = {
@@ -9,13 +9,21 @@ const taxonomy: Taxonomy = {
   relationshipTypes: {},
 };
 const tokens: ExportThemeTokens = {
-  bg: '#eef3ec', surface: '#ffffff', text: '#1f2a24', border: '#ccc', accent: '#15c08a',
+  bg: '#eef3ec',
+  surface: '#ffffff',
+  text: '#1f2a24',
+  border: '#ccc',
+  accent: '#15c08a',
 };
 const state: ResolvedState = {
   teams: [
     {
-      id: 't-1', name: 'Checkout', mission: 'Win conversion', scope: 'Funnel',
-      tags: { topology: 'platform' }, headcount: { dev: 4, pm: 1 },
+      id: 't-1',
+      name: 'Checkout',
+      mission: 'Win conversion',
+      scope: 'Funnel',
+      tags: { topology: 'platform' },
+      headcount: { dev: 4, pm: 1 },
     },
     { id: 't-2', name: 'Payments', tags: {}, headcount: {} },
   ],

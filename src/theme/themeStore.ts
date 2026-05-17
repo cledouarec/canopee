@@ -1,8 +1,8 @@
 import { createStore, type StoreApi } from 'zustand/vanilla';
 import type { StorageLike } from '@/store';
-import type { Theme } from './types';
-import { DEFAULT_THEME_ID, getTheme, THEMES } from './registry';
 import { loadThemePref, saveThemePref } from './persistence';
+import { DEFAULT_THEME_ID, getTheme, THEMES } from './registry';
+import type { Theme } from './types';
 
 export interface ThemeState {
   theme: Theme;
@@ -22,10 +22,7 @@ function initialTheme(storage: StorageLike): Theme {
   return getTheme(DEFAULT_THEME_ID)!;
 }
 
-export function createThemeStore(
-  storage: StorageLike,
-  reducedTransparency: boolean,
-): ThemeStore {
+export function createThemeStore(storage: StorageLike, reducedTransparency: boolean): ThemeStore {
   return createStore<ThemeState>()((set) => ({
     theme: initialTheme(storage),
     reducedTransparency,

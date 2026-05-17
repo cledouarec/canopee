@@ -1,7 +1,7 @@
 import { useStore } from 'zustand';
-import { safeLocalStorage, MemoryStorage } from '@/store';
-import { createThemeStore, type ThemeState } from './themeStore';
+import { MemoryStorage, safeLocalStorage } from '@/store';
 import { prefersReducedTransparency } from './persistence';
+import { createThemeStore, type ThemeState } from './themeStore';
 
 const storage = safeLocalStorage() ?? new MemoryStorage();
 const win = typeof window !== 'undefined' ? window : undefined;

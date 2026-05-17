@@ -30,13 +30,7 @@ export function DonutChart({
   let angle = -Math.PI / 2;
 
   return (
-    <svg
-      role="img"
-      aria-label={title}
-      viewBox={`0 0 ${size} ${size}`}
-      width={size}
-      height={size}
-    >
+    <svg role="img" aria-label={title} viewBox={`0 0 ${size} ${size}`} width={size} height={size}>
       <circle cx={cx} cy={cy} r={r} fill="none" stroke="var(--border)" strokeWidth={2} />
       {total > 0 &&
         segments

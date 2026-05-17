@@ -1,9 +1,9 @@
-import { describe, it, expect, beforeEach, afterEach } from 'vitest';
-import { render, screen, fireEvent, act } from '@testing-library/react';
-import { TopPill } from './TopPill';
+import { act, fireEvent, render, screen } from '@testing-library/react';
+import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 import { canopeeStore } from '@/store';
-import { themeStore } from '@/theme/useTheme';
 import { resetStores } from '@/test/resetStores';
+import { themeStore } from '@/theme/useTheme';
+import { TopPill } from './TopPill';
 
 beforeEach(() => {
   act(() => {

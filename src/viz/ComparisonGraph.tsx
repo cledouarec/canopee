@@ -1,9 +1,9 @@
-import { useMemo, type CSSProperties } from 'react';
+import { type CSSProperties, useMemo } from 'react';
 import ReactFlow, { Background } from 'reactflow';
 import type { ResolvedState } from '@/model/types';
 import type { StateDiff } from '@/scenarios/diff';
-import { teamStatus, relStatus, type TeamStatus } from './diffModel';
 import s from './ComparisonGraph.module.css';
+import { relStatus, type TeamStatus, teamStatus } from './diffModel';
 
 /*
  * Deliberately simpler than the main canvas: the diff view uses React Flow's

@@ -1,17 +1,17 @@
 import { useEffect, useRef, useState } from 'react';
 import { ReactFlowProvider } from 'reactflow';
+import { applyTheme } from '@/theme/applyTheme';
+import { useTheme } from '@/theme/useTheme';
 import { Canvas } from '@/viz/Canvas';
 import { useCanopee } from '@/viz/useCanopee';
-import { useTheme } from '@/theme/useTheme';
-import { applyTheme } from '@/theme/applyTheme';
-import { TopPill } from './TopPill';
-import { LeftRail, type RailView } from './LeftRail';
-import { BottomDock } from './BottomDock';
-import { Inspector } from './Inspector';
-import { ScenariosPanel } from './ScenariosPanel';
-import { ComparisonView } from './ComparisonView';
-import { WelcomeScreen } from './WelcomeScreen';
 import s from './AppShell.module.css';
+import { BottomDock } from './BottomDock';
+import { ComparisonView } from './ComparisonView';
+import { Inspector } from './Inspector';
+import { LeftRail, type RailView } from './LeftRail';
+import { ScenariosPanel } from './ScenariosPanel';
+import { TopPill } from './TopPill';
+import { WelcomeScreen } from './WelcomeScreen';
 
 export function AppShell(): JSX.Element {
   const theme = useTheme((s) => s.theme);
@@ -34,38 +34,38 @@ export function AppShell(): JSX.Element {
           context (the dock drives zoom via `useReactFlow`); inert for the
           scenarios/comparison views where no `<ReactFlow>` is mounted. */}
       <ReactFlowProvider>
-      {/* The full shell always renders so the grid/canvas (and any loaded
+        {/* The full shell always renders so the grid/canvas (and any loaded
           content) stay visible behind the picker. */}
-      <div className={s.layer}>
-        {view === 'comparison' ? (
-          <ComparisonView />
-        ) : view === 'scenarios' ? (
-          <ScenariosPanel />
-        ) : (
-          <Canvas />
+        <div className={s.layer}>
+          {view === 'comparison' ? (
+            <ComparisonView />
+          ) : view === 'scenarios' ? (
+            <ScenariosPanel />
+          ) : (
+            <Canvas />
+          )}
+        </div>
+
+        {/* Floating chrome, overlaid on the canvas like the HTML mock. */}
+        <div className={s.top}>
+          <TopPill onCloseProject={() => setPickerOpen(true)} />
+        </div>
+
+        <div className={s.left}>
+          <LeftRail active={view} onSelect={setView} />
+        </div>
+
+        <div className={s.right}>
+          <Inspector />
+        </div>
+
+        <div className={s.bottom}>
+          <BottomDock graphActive={view === 'graph'} />
+        </div>
+
+        {showWelcome && (
+          <WelcomeScreen dismissible={hasOrg} onDismiss={() => setPickerOpen(false)} />
         )}
-      </div>
-
-      {/* Floating chrome, overlaid on the canvas like the HTML mock. */}
-      <div className={s.top}>
-        <TopPill onCloseProject={() => setPickerOpen(true)} />
-      </div>
-
-      <div className={s.left}>
-        <LeftRail active={view} onSelect={setView} />
-      </div>
-
-      <div className={s.right}>
-        <Inspector />
-      </div>
-
-      <div className={s.bottom}>
-        <BottomDock graphActive={view === 'graph'} />
-      </div>
-
-      {showWelcome && (
-        <WelcomeScreen dismissible={hasOrg} onDismiss={() => setPickerOpen(false)} />
-      )}
       </ReactFlowProvider>
     </div>
   );

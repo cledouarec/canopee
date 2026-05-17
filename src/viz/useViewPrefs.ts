@@ -1,5 +1,5 @@
 import { useStore } from 'zustand';
-import { safeLocalStorage, MemoryStorage } from '@/store';
+import { MemoryStorage, safeLocalStorage } from '@/store';
 import { createViewPrefsStore, type ViewPrefsState } from './viewPrefsStore';
 
 const storage = safeLocalStorage() ?? new MemoryStorage();

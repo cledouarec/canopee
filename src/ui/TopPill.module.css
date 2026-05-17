@@ -1,5 +1,5 @@
 .toolbar {
-  composes: panel from './styles/primitives.module.css';
+  composes: panel from "./styles/primitives.module.css";
   display: flex;
   gap: 12px;
   align-items: center;
@@ -27,19 +27,19 @@
 
 /* Pill action that also lays out an icon + text row. */
 .iconBtn {
-  composes: pill from './styles/primitives.module.css';
+  composes: pill from "./styles/primitives.module.css";
   display: inline-flex;
   align-items: center;
   gap: 6px;
 }
 
 .dangerBtn {
-  composes: pillDanger from './styles/primitives.module.css';
+  composes: pillDanger from "./styles/primitives.module.css";
   display: inline-flex;
   align-items: center;
   gap: 6px;
 }
 
 .nameInput {
-  composes: pillSelect field from './styles/primitives.module.css';
+  composes: pillSelect field from "./styles/primitives.module.css";
 }

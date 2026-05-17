@@ -1,7 +1,7 @@
-import { describe, it, expect } from 'vitest';
-import { createThemeStore } from './themeStore';
+import { describe, expect, it } from 'vitest';
 import { MemoryStorage } from '@/store';
 import { buildCustomTheme } from './customTheme';
+import { createThemeStore } from './themeStore';
 
 describe('theme store', () => {
   it('defaults to sage-light when storage is empty', () => {

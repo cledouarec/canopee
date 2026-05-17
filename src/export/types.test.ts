@@ -1,5 +1,5 @@
-import { describe, it, expect } from 'vitest';
-import { EXPORT_CONTENTS, EXPORT_FORMATS, EXPORT_BACKGROUNDS } from './types';
+import { describe, expect, it } from 'vitest';
+import { EXPORT_BACKGROUNDS, EXPORT_CONTENTS, EXPORT_FORMATS } from './types';
 
 describe('export option lists', () => {
   it('offers graph and directory content', () => {

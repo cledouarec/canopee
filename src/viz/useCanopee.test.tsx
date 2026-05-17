@@ -1,9 +1,10 @@
-import { describe, it, expect, afterEach } from 'vitest';
-import { render, screen, act } from '@testing-library/react';
-import { useCanopee } from './useCanopee';
+import { act, render, screen } from '@testing-library/react';
+import { afterEach, describe, expect, it } from 'vitest';
 import { resetStores } from '@/test/resetStores';
+import { useCanopee } from './useCanopee';
 
 afterEach(() => resetStores());
+
 import { canopeeStore } from '@/store';
 
 function OrgName(): JSX.Element {

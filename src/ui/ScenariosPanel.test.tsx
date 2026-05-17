@@ -1,8 +1,8 @@
-import { describe, it, expect, beforeEach, afterEach } from 'vitest';
-import { render, screen, fireEvent, act } from '@testing-library/react';
-import { ScenariosPanel } from './ScenariosPanel';
+import { act, fireEvent, render, screen } from '@testing-library/react';
+import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 import { canopeeStore } from '@/store';
 import { resetStores } from '@/test/resetStores';
+import { ScenariosPanel } from './ScenariosPanel';
 
 beforeEach(() => {
   act(() => {

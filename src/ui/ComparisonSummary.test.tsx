@@ -1,14 +1,17 @@
-import { describe, it, expect, vi } from 'vitest';
-import { render, screen, fireEvent } from '@testing-library/react';
-import { ComparisonSummary } from './ComparisonSummary';
+import { fireEvent, render, screen } from '@testing-library/react';
+import { describe, expect, it, vi } from 'vitest';
 import type { StateDiff } from '@/scenarios/diff';
+import { ComparisonSummary } from './ComparisonSummary';
 
 const diff: StateDiff = {
   teams: { added: ['t-3'], removed: ['t-2'], modified: ['t-1'], unchanged: [] },
   relationships: { added: [], removed: ['r-1'] },
   summary: {
-    teamsAdded: 1, teamsRemoved: 1, teamsModified: 1,
-    relationshipsAdded: 0, relationshipsRemoved: 1,
+    teamsAdded: 1,
+    teamsRemoved: 1,
+    teamsModified: 1,
+    relationshipsAdded: 0,
+    relationshipsRemoved: 1,
   },
 };
 

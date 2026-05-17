@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { Handle, Position, type NodeProps } from 'reactflow';
+import { Handle, type NodeProps, Position } from 'reactflow';
 import type { TeamNodeData } from './graphModel';
 import { TeamCard } from './TeamCard';
 import s from './TeamNode.module.css';
