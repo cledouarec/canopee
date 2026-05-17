@@ -1,6 +1,6 @@
-import { describe, it, expect } from 'vitest';
+import { describe, expect, it } from 'vitest';
+import { CURRENT_SCENARIO_ID, SCHEMA_VERSION } from '@/model/types';
 import { createOrg, renameOrg, setColorBy } from './edits';
-import { SCHEMA_VERSION, CURRENT_SCENARIO_ID } from '@/model/types';
 
 describe('createOrg', () => {
   it('builds an org from a framework with one empty current scenario', () => {

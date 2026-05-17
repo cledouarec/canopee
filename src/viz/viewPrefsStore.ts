@@ -1,7 +1,7 @@
 import { createStore, type StoreApi } from 'zustand/vanilla';
-import type { StorageLike } from '@/store';
 import type { LayoutMode } from '@/layout/types';
-import { type ViewPrefs, loadViewPrefs, saveViewPrefs } from './viewPrefs';
+import type { StorageLike } from '@/store';
+import { loadViewPrefs, saveViewPrefs, type ViewPrefs } from './viewPrefs';
 
 export interface ViewPrefsState {
   prefs: ViewPrefs;
@@ -28,9 +28,7 @@ export function createViewPrefsStore(storage: StorageLike): ViewPrefsStore {
       },
       toggleExpanded(teamId) {
         const cur = get().prefs.expandedTeamIds;
-        const next = cur.includes(teamId)
-          ? cur.filter((id) => id !== teamId)
-          : [...cur, teamId];
+        const next = cur.includes(teamId) ? cur.filter((id) => id !== teamId) : [...cur, teamId];
         commit({ ...get().prefs, expandedTeamIds: next });
       },
     };

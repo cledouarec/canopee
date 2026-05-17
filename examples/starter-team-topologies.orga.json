@@ -31,7 +31,5 @@
   ],
   "people": [],
   "relationships": [],
-  "scenarios": [
-    { "id": "current", "name": "Current", "teams": [], "relationships": [] }
-  ]
+  "scenarios": [{ "id": "current", "name": "Current", "teams": [], "relationships": [] }]
 }

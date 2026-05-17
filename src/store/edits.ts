@@ -1,16 +1,16 @@
+import { getFramework } from '@/frameworks';
+import { newId } from '@/model/ids';
 import {
   CURRENT_SCENARIO_ID,
-  SCHEMA_VERSION,
   DEFAULT_ZOOM,
   type Id,
   type Organization,
   type Person,
   type Relationship,
+  SCHEMA_VERSION,
   type ScenarioDelta,
   type Team,
 } from '@/model/types';
-import { getFramework } from '@/frameworks';
-import { newId } from '@/model/ids';
 
 /**
  * Pure, scenario-aware transforms on an `Organization`. Every function returns
@@ -31,9 +31,7 @@ export function createOrg(name: string, frameworkId: string): Organization {
     teams: [],
     people: [],
     relationships: [],
-    scenarios: [
-      { id: CURRENT_SCENARIO_ID, name: 'Current', teams: [], relationships: [] },
-    ],
+    scenarios: [{ id: CURRENT_SCENARIO_ID, name: 'Current', teams: [], relationships: [] }],
     view: { zoom: DEFAULT_ZOOM },
   };
 }
@@ -68,11 +66,7 @@ function mapScenario(
   return { ...org, scenarios };
 }
 
-export function upsertTeam(
-  org: Organization,
-  scenarioId: Id,
-  team: Team,
-): Organization {
+export function upsertTeam(org: Organization, scenarioId: Id, team: Team): Organization {
   if (scenarioId === CURRENT_SCENARIO_ID) {
     return { ...org, teams: upsertById(org.teams, team) };
   }
@@ -83,11 +77,7 @@ export function upsertTeam(
   }));
 }
 
-export function removeTeam(
-  org: Organization,
-  scenarioId: Id,
-  teamId: Id,
-): Organization {
+export function removeTeam(org: Organization, scenarioId: Id, teamId: Id): Organization {
   if (scenarioId === CURRENT_SCENARIO_ID) {
     return { ...org, teams: org.teams.filter((t) => t.id !== teamId) };
   }
@@ -114,17 +104,11 @@ export function upsertRelationship(
   return mapScenario(org, scenarioId, (s) => ({
     ...s,
     relationships: upsertById(s.relationships, rel),
-    removedRelationshipIds: (s.removedRelationshipIds ?? []).filter(
-      (id) => id !== rel.id,
-    ),
+    removedRelationshipIds: (s.removedRelationshipIds ?? []).filter((id) => id !== rel.id),
   }));
 }
 
-export function removeRelationship(
-  org: Organization,
-  scenarioId: Id,
-  relId: Id,
-): Organization {
+export function removeRelationship(org: Organization, scenarioId: Id, relId: Id): Organization {
   if (scenarioId === CURRENT_SCENARIO_ID) {
     return {
       ...org,
@@ -167,11 +151,7 @@ export function createScenario(
   return { org: { ...org, scenarios: [...org.scenarios, scenario] }, scenarioId };
 }
 
-export function renameScenario(
-  org: Organization,
-  scenarioId: Id,
-  name: string,
-): Organization {
+export function renameScenario(org: Organization, scenarioId: Id, name: string): Organization {
   return mapScenario(org, scenarioId, (s) => ({ ...s, name }));
 }
 

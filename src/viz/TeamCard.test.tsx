@@ -1,7 +1,7 @@
-import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import { TeamCard } from './TeamCard';
+import { describe, expect, it } from 'vitest';
 import type { Team } from '@/model/types';
+import { TeamCard } from './TeamCard';
 
 const team: Team = {
   id: 't-1',
@@ -9,10 +9,7 @@ const team: Team = {
   icon: 'shopping-cart',
   tags: {},
   headcount: { dev: 5, pm: 1 },
-  members: [
-    { personId: 'p-1' },
-    { personId: 'p-2' },
-  ],
+  members: [{ personId: 'p-1' }, { personId: 'p-2' }],
 };
 
 describe('TeamCard', () => {

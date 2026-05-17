@@ -1,6 +1,6 @@
-import { describe, it, expect } from 'vitest';
-import { computeLayout } from './elkAdapter';
+import { describe, expect, it } from 'vitest';
 import type { ResolvedState, Taxonomy } from '@/model/types';
+import { computeLayout } from './elkAdapter';
 
 const taxonomy: Taxonomy = {
   colorBy: 'topology',

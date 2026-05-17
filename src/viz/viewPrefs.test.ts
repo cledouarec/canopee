@@ -1,6 +1,6 @@
-import { describe, it, expect } from 'vitest';
-import { loadViewPrefs, saveViewPrefs, DEFAULT_VIEW_PREFS, VIEW_PREFS_KEY } from './viewPrefs';
+import { describe, expect, it } from 'vitest';
 import { MemoryStorage } from '@/store';
+import { DEFAULT_VIEW_PREFS, loadViewPrefs, saveViewPrefs, VIEW_PREFS_KEY } from './viewPrefs';
 
 describe('view preferences', () => {
   it('returns defaults when nothing is stored', () => {

@@ -20,11 +20,7 @@ function download(name: string, text: string): void {
 }
 
 export function ComparisonSummary({ diff }: { diff: StateDiff }): JSX.Element {
-  const ids = [
-    ...diff.teams.added,
-    ...diff.teams.removed,
-    ...diff.teams.modified,
-  ];
+  const ids = [...diff.teams.added, ...diff.teams.removed, ...diff.teams.modified];
   return (
     <section aria-label="Comparison summary" className={s.section}>
       <div className={s.counters}>

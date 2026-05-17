@@ -1,15 +1,15 @@
+import { attachAutosave, hydrate } from './autosave';
+import { MemoryStorage, safeLocalStorage } from './persistence';
 import { createCanopeeStore } from './store';
-import { safeLocalStorage, MemoryStorage } from './persistence';
-import { hydrate, attachAutosave } from './autosave';
 
-export * from './store';
 export * from './edits';
 export {
   MemoryStorage,
-  safeLocalStorage,
   type StorageLike,
+  safeLocalStorage,
   type Workspace,
 } from './persistence';
+export * from './store';
 
 const realStorage = safeLocalStorage();
 

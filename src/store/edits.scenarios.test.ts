@@ -1,7 +1,7 @@
-import { describe, it, expect } from 'vitest';
-import { createOrg, createScenario, renameScenario, deleteScenario } from './edits';
-import { resolveScenario } from '@/scenarios/resolve';
+import { describe, expect, it } from 'vitest';
 import { CURRENT_SCENARIO_ID } from '@/model/types';
+import { resolveScenario } from '@/scenarios/resolve';
+import { createOrg, createScenario, deleteScenario, renameScenario } from './edits';
 
 describe('createScenario', () => {
   it('appends an empty scenario and returns its generated id', () => {

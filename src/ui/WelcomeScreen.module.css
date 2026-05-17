@@ -13,13 +13,15 @@
 }
 
 .dialog {
-  composes: panel from './styles/primitives.module.css';
+  composes: panel from "./styles/primitives.module.css";
   /* Same frosted surface as the Inspector (plain panel glass). The dim is
      cast outward as a huge spread shadow instead of a full-screen scrim, so
      nothing dark sits behind the glass — it frosts the bright graph and
      reads identically to the Inspector. `100vmax` is clipped to the viewport
      by .shell's overflow:hidden, so it covers exactly the screen. */
-  box-shadow: var(--panel-shadow), 0 0 0 100vmax var(--scrim);
+  box-shadow:
+    var(--panel-shadow),
+    0 0 0 100vmax var(--scrim);
   padding: 28px;
   width: 420px;
   display: grid;
@@ -28,7 +30,7 @@
 
 /* Pill action that also lays out an icon + text row (see TopPill.iconBtn). */
 .createBtn {
-  composes: pill from './styles/primitives.module.css';
+  composes: pill from "./styles/primitives.module.css";
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -47,7 +49,7 @@
 }
 
 .cancel {
-  composes: pillGhost from './styles/primitives.module.css';
+  composes: pillGhost from "./styles/primitives.module.css";
   padding: 4px 10px;
 }
 

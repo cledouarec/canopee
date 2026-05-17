@@ -1,8 +1,8 @@
-import { describe, it, expect, beforeEach, afterEach } from 'vitest';
-import { render, screen, fireEvent, act, waitFor } from '@testing-library/react';
-import { WelcomeScreen } from './WelcomeScreen';
+import { act, fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 import { canopeeStore } from '@/store';
 import { resetStores } from '@/test/resetStores';
+import { WelcomeScreen } from './WelcomeScreen';
 
 beforeEach(() => {
   act(() => canopeeStore.setState({ org: null }));

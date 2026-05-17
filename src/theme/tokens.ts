@@ -1,4 +1,4 @@
-import { TOKEN_KEYS, type Theme, type TokenKey } from './types';
+import { type Theme, TOKEN_KEYS, type TokenKey } from './types';
 
 /** camelCase token key → kebab CSS custom property name. */
 function cssVarName(key: TokenKey): string {
@@ -10,10 +10,7 @@ function cssVarName(key: TokenKey): string {
  * When `reducedTransparency` is true the frosted-glass surface degrades to
  * the opaque surface and the blur is disabled (spec §7 fallback).
  */
-export function themeCssVars(
-  theme: Theme,
-  reducedTransparency: boolean,
-): Record<string, string> {
+export function themeCssVars(theme: Theme, reducedTransparency: boolean): Record<string, string> {
   const vars: Record<string, string> = {};
   for (const key of TOKEN_KEYS) {
     vars[cssVarName(key)] = theme.tokens[key];

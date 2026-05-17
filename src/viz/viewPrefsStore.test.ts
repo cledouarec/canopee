@@ -1,7 +1,7 @@
-import { describe, it, expect } from 'vitest';
-import { createViewPrefsStore } from './viewPrefsStore';
-import { loadViewPrefs } from './viewPrefs';
+import { describe, expect, it } from 'vitest';
 import { MemoryStorage } from '@/store';
+import { loadViewPrefs } from './viewPrefs';
+import { createViewPrefsStore } from './viewPrefsStore';
 
 describe('view-prefs store', () => {
   it('seeds from storage defaults', () => {

@@ -1,10 +1,5 @@
-import { reconcile, type CanopeeStore } from './store';
-import {
-  type StorageLike,
-  debounce,
-  loadWorkspace,
-  saveWorkspace,
-} from './persistence';
+import { debounce, loadWorkspace, type StorageLike, saveWorkspace } from './persistence';
+import { type CanopeeStore, reconcile } from './store';
 
 /**
  * Load a previously saved workspace into the store. Returns `true` if work was

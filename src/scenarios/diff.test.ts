@@ -1,13 +1,15 @@
-import { describe, it, expect } from 'vitest';
-import { diffStates } from './diff';
+import { describe, expect, it } from 'vitest';
 import type { ResolvedState } from '@/model/types';
+import { diffStates } from './diff';
 
 const A: ResolvedState = {
   teams: [
     { id: 't-1', name: 'Checkout', tags: {}, headcount: { dev: 5 }, position: { x: 0, y: 0 } },
     { id: 't-2', name: 'Platform', tags: {}, headcount: { dev: 9 } },
   ],
-  relationships: [{ id: 'r-1', source: 't-1', target: 't-2', type: 'x-as-a-service', directed: true }],
+  relationships: [
+    { id: 'r-1', source: 't-1', target: 't-2', type: 'x-as-a-service', directed: true },
+  ],
 };
 
 const B: ResolvedState = {
@@ -29,11 +31,21 @@ describe('diffStates', () => {
 
   it('ignores position-only changes (layout is not a semantic change)', () => {
     const same: ResolvedState = {
-      teams: [{ id: 't-1', name: 'Checkout', tags: {}, headcount: { dev: 5 }, position: { x: 1, y: 1 } }],
+      teams: [
+        { id: 't-1', name: 'Checkout', tags: {}, headcount: { dev: 5 }, position: { x: 1, y: 1 } },
+      ],
       relationships: [],
     };
     const moved: ResolvedState = {
-      teams: [{ id: 't-1', name: 'Checkout', tags: {}, headcount: { dev: 5 }, position: { x: 500, y: 9 } }],
+      teams: [
+        {
+          id: 't-1',
+          name: 'Checkout',
+          tags: {},
+          headcount: { dev: 5 },
+          position: { x: 500, y: 9 },
+        },
+      ],
       relationships: [],
     };
     expect(diffStates(same, moved).teams.modified).toEqual([]);
@@ -73,11 +85,15 @@ describe('diffStates', () => {
   it('encodes a relationship modification as both removed and added', () => {
     const a: ResolvedState = {
       teams: [],
-      relationships: [{ id: 'r-1', source: 's', target: 't', type: 'collaboration', directed: true }],
+      relationships: [
+        { id: 'r-1', source: 's', target: 't', type: 'collaboration', directed: true },
+      ],
     };
     const b: ResolvedState = {
       teams: [],
-      relationships: [{ id: 'r-1', source: 's', target: 't', type: 'x-as-a-service', directed: true }],
+      relationships: [
+        { id: 'r-1', source: 's', target: 't', type: 'x-as-a-service', directed: true },
+      ],
     };
     const d = diffStates(a, b);
     expect(d.relationships.added).toEqual(['r-1']);
@@ -88,7 +104,10 @@ describe('diffStates', () => {
 
   it('keeps an identical relationship out of added/removed', () => {
     const rel = { id: 'r-1', source: 's', target: 't', type: 'collaboration', directed: true };
-    const d = diffStates({ teams: [], relationships: [rel] }, { teams: [], relationships: [{ ...rel }] });
+    const d = diffStates(
+      { teams: [], relationships: [rel] },
+      { teams: [], relationships: [{ ...rel }] },
+    );
     expect(d.relationships.added).toEqual([]);
     expect(d.relationships.removed).toEqual([]);
   });

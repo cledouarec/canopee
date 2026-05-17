@@ -1,5 +1,5 @@
-import type { Theme, ThemeBase } from './types';
 import { getTheme } from './registry';
+import type { Theme, ThemeBase } from './types';
 
 export const CUSTOM_THEME_ID = 'custom';
 

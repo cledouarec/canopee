@@ -1,5 +1,5 @@
-import { test, expect } from '@playwright/test';
 import { join } from 'node:path';
+import { expect, test } from '@playwright/test';
 
 const fixture = join(import.meta.dirname, 'fixtures', 'sample.orga.json');
 

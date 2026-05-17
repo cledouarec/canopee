@@ -1,5 +1,5 @@
-import prim from './styles/primitives.module.css';
 import s from './LeftRail.module.css';
+import prim from './styles/primitives.module.css';
 
 export type RailView = 'graph' | 'scenarios' | 'comparison';
 

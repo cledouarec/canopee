@@ -1,9 +1,9 @@
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
-import { createCanopeeStore } from './store';
-import { hydrate, attachAutosave } from './autosave';
-import { MemoryStorage, loadWorkspace, saveWorkspace } from './persistence';
-import { createOrg } from './edits';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { CURRENT_SCENARIO_ID } from '@/model/types';
+import { attachAutosave, hydrate } from './autosave';
+import { createOrg } from './edits';
+import { loadWorkspace, MemoryStorage, saveWorkspace } from './persistence';
+import { createCanopeeStore } from './store';
 
 describe('hydrate', () => {
   it('loads a saved workspace into the store and returns true', () => {

@@ -1,9 +1,5 @@
-import { describe, it, expect } from 'vitest';
-import {
-  SCHEMA_VERSION,
-  CURRENT_SCENARIO_ID,
-  type Organization,
-} from './types';
+import { describe, expect, it } from 'vitest';
+import { CURRENT_SCENARIO_ID, type Organization, SCHEMA_VERSION } from './types';
 
 describe('model constants', () => {
   it('exposes the schema version and current scenario id', () => {

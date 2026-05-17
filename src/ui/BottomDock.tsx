@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react';
 import { useReactFlow, useViewport } from 'reactflow';
 import type { LayoutMode } from '@/layout/types';
 import { useViewPrefs } from '@/viz/useViewPrefs';
-import prim from './styles/primitives.module.css';
 import s from './BottomDock.module.css';
+import prim from './styles/primitives.module.css';
 
 const MODES: { mode: LayoutMode; label: string; glyph: string }[] = [
   { mode: 'free', label: 'Free layout', glyph: '⋄' },

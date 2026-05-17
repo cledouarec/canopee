@@ -1,4 +1,4 @@
-import type { RelationshipStyle, Relationship, Taxonomy, Team } from '@/model/types';
+import type { Relationship, RelationshipStyle, Taxonomy, Team } from '@/model/types';
 
 /** Neutral grey for any value/type absent from the taxonomy (spec §5). */
 export const UNCATEGORIZED_COLOR = '#c9c9c9';
@@ -32,10 +32,7 @@ export function teamColor(team: Team, taxonomy: Taxonomy): string {
 }
 
 /** Line style for a relationship; `solid` if the type is not in the taxonomy. */
-export function relationshipStyle(
-  rel: Relationship,
-  taxonomy: Taxonomy,
-): RelationshipStyle {
+export function relationshipStyle(rel: Relationship, taxonomy: Taxonomy): RelationshipStyle {
   return taxonomy.relationshipTypes[rel.type]?.style ?? 'solid';
 }
 

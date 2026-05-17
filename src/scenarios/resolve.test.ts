@@ -1,7 +1,7 @@
-import { describe, it, expect } from 'vitest';
-import { resolveScenario } from './resolve';
+import { describe, expect, it } from 'vitest';
 import { teamTopologies } from '@/frameworks/teamTopologies';
-import { SCHEMA_VERSION, CURRENT_SCENARIO_ID, type Organization } from '@/model/types';
+import { CURRENT_SCENARIO_ID, type Organization, SCHEMA_VERSION } from '@/model/types';
+import { resolveScenario } from './resolve';
 
 function org(): Organization {
   return {
@@ -13,7 +13,9 @@ function org(): Organization {
       { id: 't-2', name: 'Platform', tags: {}, headcount: { dev: 9 } },
     ],
     people: [],
-    relationships: [{ id: 'r-1', source: 't-1', target: 't-2', type: 'x-as-a-service', directed: true }],
+    relationships: [
+      { id: 'r-1', source: 't-1', target: 't-2', type: 'x-as-a-service', directed: true },
+    ],
     scenarios: [
       { id: CURRENT_SCENARIO_ID, name: 'Current', teams: [], relationships: [] },
       {

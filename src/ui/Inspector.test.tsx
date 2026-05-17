@@ -1,14 +1,18 @@
-import { describe, it, expect, beforeEach, afterEach } from 'vitest';
-import { render, screen, fireEvent, act } from '@testing-library/react';
-import { Inspector } from './Inspector';
+import { act, fireEvent, render, screen } from '@testing-library/react';
+import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 import { canopeeStore } from '@/store';
 import { resetStores } from '@/test/resetStores';
+import { Inspector } from './Inspector';
 
 beforeEach(() => {
   act(() => {
     canopeeStore.getState().newOrg('Acme', 'team-topologies');
     canopeeStore.getState().upsertTeam({
-      id: 't-1', name: 'Checkout', mission: 'Win', tags: {}, headcount: { dev: 4 },
+      id: 't-1',
+      name: 'Checkout',
+      mission: 'Win',
+      tags: {},
+      headcount: { dev: 4 },
     });
     canopeeStore.getState().select(null);
   });

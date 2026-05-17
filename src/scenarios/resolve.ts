@@ -1,8 +1,8 @@
 import {
   CURRENT_SCENARIO_ID,
   type Organization,
-  type ResolvedState,
   type Relationship,
+  type ResolvedState,
   type Team,
 } from '@/model/types';
 

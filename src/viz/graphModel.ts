@@ -1,14 +1,7 @@
 import type { MarkerType } from 'reactflow';
-import type {
-  Id,
-  Relationship,
-  ResolvedState,
-  Taxonomy,
-  Team,
-  XY,
-} from '@/model/types';
-import type { ViewPrefs } from './viewPrefs';
+import type { Id, Relationship, ResolvedState, Taxonomy, Team, XY } from '@/model/types';
 import { edgeDashArray, relationshipStyle, teamColor } from './colors';
+import type { ViewPrefs } from './viewPrefs';
 
 export interface TeamNodeData {
   team: Team;

@@ -1,11 +1,11 @@
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
-import { render, screen, fireEvent, act } from '@testing-library/react';
+import { act, fireEvent, render, screen } from '@testing-library/react';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 vi.mock('reactflow', () => import('@/test/reactFlowMock'));
 
-import { BottomDock } from './BottomDock';
-import { viewPrefsStore } from '@/viz/useViewPrefs';
 import { resetStores } from '@/test/resetStores';
+import { viewPrefsStore } from '@/viz/useViewPrefs';
+import { BottomDock } from './BottomDock';
 
 beforeEach(() => {
   act(() => {

@@ -1,9 +1,9 @@
-import type { Framework } from './types';
-import { teamTopologies } from './teamTopologies';
-import { horizontalMetier } from './horizontal';
-import { verticalFeature } from './vertical';
-import { spotify } from './spotify';
 import { customFramework } from './custom';
+import { horizontalMetier } from './horizontal';
+import { spotify } from './spotify';
+import { teamTopologies } from './teamTopologies';
+import type { Framework } from './types';
+import { verticalFeature } from './vertical';
 
 export const FRAMEWORKS: Framework[] = [
   teamTopologies,

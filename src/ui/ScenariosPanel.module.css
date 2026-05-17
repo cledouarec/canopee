@@ -1,5 +1,5 @@
 .aside {
-  composes: panel from './styles/primitives.module.css';
+  composes: panel from "./styles/primitives.module.css";
   width: 260px;
   padding: 14px;
   color: var(--text);

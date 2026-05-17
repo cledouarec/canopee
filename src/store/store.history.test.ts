@@ -1,7 +1,7 @@
-import { describe, it, expect } from 'vitest';
-import { createCanopeeStore } from './store';
-import { resolveScenario } from '@/scenarios/resolve';
+import { describe, expect, it } from 'vitest';
 import { CURRENT_SCENARIO_ID } from '@/model/types';
+import { resolveScenario } from '@/scenarios/resolve';
+import { createCanopeeStore } from './store';
 
 describe('undo / redo', () => {
   it('canUndo/canRedo reflect the history stacks', () => {

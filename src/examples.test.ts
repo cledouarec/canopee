@@ -1,6 +1,6 @@
-import { describe, it, expect } from 'vitest';
 import { readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { describe, expect, it } from 'vitest';
 import { parseOrg } from './serialization/serialize';
 
 const examplesDir = join(import.meta.dirname, '..', 'examples');

@@ -1,5 +1,5 @@
 .dock {
-  composes: panel from './styles/primitives.module.css';
+  composes: panel from "./styles/primitives.module.css";
   display: flex;
   gap: 6px;
   align-items: center;
@@ -21,7 +21,7 @@
 }
 
 .zoomInput {
-  composes: pillGhost from './styles/primitives.module.css';
+  composes: pillGhost from "./styles/primitives.module.css";
   width: 44px;
   text-align: right;
   padding: 6px 2px;

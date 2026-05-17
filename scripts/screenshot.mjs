@@ -2,8 +2,9 @@
 // waits for the graph to render, and saves a PNG.
 // Usage: a preview server must already be running at $BASE_URL (default :4173).
 //   node scripts/screenshot.mjs
-import { chromium } from '@playwright/test';
+
 import { join } from 'node:path';
+import { chromium } from '@playwright/test';
 
 const root = join(import.meta.dirname, '..');
 const baseUrl = process.env.BASE_URL ?? 'http://localhost:4173';

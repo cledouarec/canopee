@@ -1,5 +1,5 @@
 import type { Id, ResolvedState, Taxonomy, XY } from '@/model/types';
-import { teamColor, NODE_TEXT_COLOR } from '@/viz/colors';
+import { NODE_TEXT_COLOR, teamColor } from '@/viz/colors';
 import type { ExportBackground, ExportThemeTokens } from './types';
 
 const NODE_W = 180;

@@ -42,10 +42,7 @@ function computeSizes(teams: Team[]): TeamSizeStats {
   };
 }
 
-function communication(
-  sizes: Record<Id, number>,
-  threshold: number,
-): CommunicationStats {
+function communication(sizes: Record<Id, number>, threshold: number): CommunicationStats {
   const perTeam: Record<Id, number> = {};
   for (const [id, n] of Object.entries(sizes)) perTeam[id] = (n * (n - 1)) / 2;
   return {
@@ -174,12 +171,8 @@ function cognitiveLoad(
   };
 }
 
-function buildAlerts(
-  state: ResolvedState,
-  report: Omit<MetricsReport, 'alerts'>,
-): string[] {
-  const name = (id: Id): string =>
-    state.teams.find((t) => t.id === id)?.name ?? id;
+function buildAlerts(state: ResolvedState, report: Omit<MetricsReport, 'alerts'>): string[] {
+  const name = (id: Id): string => state.teams.find((t) => t.id === id)?.name ?? id;
   const alerts: string[] = [];
   for (const id of report.coupling.isolated) {
     alerts.push(`${name(id)} is isolated (no relationships) — potential silo.`);

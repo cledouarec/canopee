@@ -1,5 +1,5 @@
-import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
+import { describe, expect, it } from 'vitest';
 import { BarChart } from './BarChart';
 
 describe('BarChart', () => {
@@ -23,7 +23,15 @@ describe('BarChart', () => {
   });
 
   it('scales the tallest bar to (almost) full height', () => {
-    render(<BarChart title="S" data={[{ label: 'x', value: 10 }, { label: 'y', value: 5 }]} />);
+    render(
+      <BarChart
+        title="S"
+        data={[
+          { label: 'x', value: 10 },
+          { label: 'y', value: 5 },
+        ]}
+      />,
+    );
     const rects = screen.getByRole('img', { name: 'S' }).querySelectorAll('rect');
     const h0 = Number(rects[0].getAttribute('height'));
     const h1 = Number(rects[1].getAttribute('height'));

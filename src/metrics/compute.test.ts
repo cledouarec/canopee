@@ -1,6 +1,6 @@
-import { describe, it, expect } from 'vitest';
-import { computeMetrics } from './compute';
+import { describe, expect, it } from 'vitest';
 import type { ResolvedState, Taxonomy } from '@/model/types';
+import { computeMetrics } from './compute';
 
 const taxonomy: Taxonomy = {
   colorBy: 'topology',
@@ -71,7 +71,10 @@ describe('computeMetrics — dependency depth', () => {
     // Longest simple path: E→C→A→B→X→Y = 5 edges.
     const g: ResolvedState = {
       teams: ['A', 'B', 'C', 'X', 'Y', 'E'].map((id) => ({
-        id, name: id, tags: {}, headcount: {},
+        id,
+        name: id,
+        tags: {},
+        headcount: {},
       })),
       relationships: [
         { id: 'e1', source: 'A', target: 'B', type: 'x', directed: true },

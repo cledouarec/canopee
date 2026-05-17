@@ -1,6 +1,6 @@
-import { describe, it, expect } from 'vitest';
+import { Box, ShoppingCart } from 'lucide-react';
+import { describe, expect, it } from 'vitest';
 import { getLucideIcon } from './icon';
-import { ShoppingCart, Box } from 'lucide-react';
 
 describe('getLucideIcon', () => {
   it('resolves a kebab-case icon name to its Lucide component', () => {

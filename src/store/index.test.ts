@@ -1,10 +1,5 @@
-import { describe, it, expect } from 'vitest';
-import {
-  canopeeStore,
-  persistenceAvailable,
-  createCanopeeStore,
-  createOrg,
-} from './index';
+import { describe, expect, it } from 'vitest';
+import { canopeeStore, createCanopeeStore, createOrg, persistenceAvailable } from './index';
 
 describe('store barrel', () => {
   it('re-exports the factory and edit helpers', () => {

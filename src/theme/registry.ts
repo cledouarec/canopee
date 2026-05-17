@@ -18,8 +18,7 @@ const sageLight: Theme = {
     error: '#c0392b',
     scrim: 'rgba(0,0,0,.4)',
     panelRim: 'rgba(255,255,255,.45)',
-    panelShadow:
-      '0 10px 30px rgba(30,45,20,.14), inset 0 1px 1px rgba(255,255,255,.6)',
+    panelShadow: '0 10px 30px rgba(30,45,20,.14), inset 0 1px 1px rgba(255,255,255,.6)',
     cardShadow: '0 1px 3px rgba(0,0,0,.18)',
     statusAdded: '#15c08a',
     statusRemoved: '#9aa0a6',
@@ -45,8 +44,7 @@ const duskDark: Theme = {
     error: '#ff8a80',
     scrim: 'rgba(0,0,0,.55)',
     panelRim: 'rgba(255,255,255,.12)',
-    panelShadow:
-      '0 10px 30px rgba(0,0,0,.4), inset 0 1px 1px rgba(255,255,255,.08)',
+    panelShadow: '0 10px 30px rgba(0,0,0,.4), inset 0 1px 1px rgba(255,255,255,.08)',
     cardShadow: '0 1px 3px rgba(0,0,0,.5)',
     statusAdded: '#1ed79b',
     statusRemoved: '#9aa0a6',

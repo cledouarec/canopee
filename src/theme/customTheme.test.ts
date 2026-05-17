@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest';
+import { describe, expect, it } from 'vitest';
 import { buildCustomTheme, CUSTOM_THEME_ID } from './customTheme';
 import { TOKEN_KEYS } from './types';
 

@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { expect, test } from '@playwright/test';
 
 test('create a scenario, open comparison, export the summary', async ({ page }) => {
   await page.addInitScript(() => window.localStorage.clear());
@@ -14,9 +14,7 @@ test('create a scenario, open comparison, export the summary', async ({ page }) 
   await page.getByRole('button', { name: 'Scenarios' }).click();
   await page.getByLabel('New scenario name').fill('Q3 Reorg');
   await page.getByRole('button', { name: 'Add scenario' }).click();
-  await expect(
-    page.getByRole('button', { name: 'Select scenario Q3 Reorg' }),
-  ).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Select scenario Q3 Reorg' })).toBeVisible();
 
   await page.getByRole('button', { name: 'Comparison' }).click();
   await expect(page.getByLabel('Comparison summary')).toBeVisible();

@@ -1,10 +1,10 @@
 import { useMemo } from 'react';
-import { resolveScenario } from '@/scenarios/resolve';
 import { computeMetrics } from '@/metrics/compute';
+import { resolveScenario } from '@/scenarios/resolve';
 import { BarChart } from '@/viz/charts/BarChart';
 import { DonutChart } from '@/viz/charts/DonutChart';
+import { teamColor, UNCATEGORIZED_COLOR } from '@/viz/colors';
 import { useCanopee } from '@/viz/useCanopee';
-import { UNCATEGORIZED_COLOR, teamColor } from '@/viz/colors';
 import s from './InsightsPanel.module.css';
 
 function Metric({
@@ -33,8 +33,7 @@ export function InsightsPanel(): JSX.Element {
   const org = useCanopee((s) => s.org);
   const selectedScenarioId = useCanopee((s) => s.selectedScenarioId);
   const selectedEntity = useCanopee((s) => s.selectedEntity);
-  const selectedTeamId =
-    selectedEntity?.kind === 'team' ? selectedEntity.id : null;
+  const selectedTeamId = selectedEntity?.kind === 'team' ? selectedEntity.id : null;
 
   const data = useMemo(() => {
     if (!org) return null;
@@ -75,8 +74,7 @@ export function InsightsPanel(): JSX.Element {
   // The selected team focuses its bar and its distribution slice.
   const selectedBarId =
     selectedTeamId && selectedTeamId in m.teamSize.sizes ? selectedTeamId : undefined;
-  const selectedDistValue =
-    selectedTeamId != null ? colorByValue[selectedTeamId] : undefined;
+  const selectedDistValue = selectedTeamId != null ? colorByValue[selectedTeamId] : undefined;
   const colorBy = taxonomy.colorBy;
   const dist = m.distribution.byDimension[colorBy] ?? {};
   const palette = taxonomy.dimensions[colorBy]?.values ?? {};

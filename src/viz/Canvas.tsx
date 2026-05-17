@@ -1,14 +1,14 @@
 import { useEffect, useMemo, useState } from 'react';
 import ReactFlow, { Background, BackgroundVariant, useReactFlow } from 'reactflow';
-import { DEFAULT_ZOOM, type Id, type ResolvedState, type Taxonomy, type XY } from '@/model/types';
-import { canopeeStore } from '@/store';
-import { resolveScenario } from '@/scenarios/resolve';
 import { computeLayout } from '@/layout/elkAdapter';
+import { DEFAULT_ZOOM, type Id, type ResolvedState, type Taxonomy, type XY } from '@/model/types';
+import { resolveScenario } from '@/scenarios/resolve';
+import { canopeeStore } from '@/store';
+import s from './Canvas.module.css';
 import { buildGraph } from './graphModel';
 import { TeamNode } from './TeamNode';
 import { useCanopee } from './useCanopee';
 import { useViewPrefs } from './useViewPrefs';
-import s from './Canvas.module.css';
 
 const nodeTypes = { team: TeamNode };
 const EMPTY_STATE: ResolvedState = { teams: [], relationships: [] };

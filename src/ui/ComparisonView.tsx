@@ -1,11 +1,11 @@
 import { useMemo } from 'react';
 import type { ScenarioDelta } from '@/model/types';
-import { useCanopee } from '@/viz/useCanopee';
-import { compareScenarios } from '@/viz/diffModel';
 import { ComparisonGraph } from '@/viz/ComparisonGraph';
+import { compareScenarios } from '@/viz/diffModel';
+import { useCanopee } from '@/viz/useCanopee';
 import { ComparisonSummary } from './ComparisonSummary';
-import { useComparison } from './useComparison';
 import s from './ComparisonView.module.css';
+import { useComparison } from './useComparison';
 
 function ScenarioSelect({
   label,
@@ -21,11 +21,7 @@ function ScenarioSelect({
   return (
     <label className={s.label}>
       {label}{' '}
-      <select
-        aria-label={label}
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-      >
+      <select aria-label={label} value={value} onChange={(e) => onChange(e.target.value)}>
         {scenarios.map((s) => (
           <option key={s.id} value={s.id}>
             {s.name}

@@ -1,14 +1,18 @@
-import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
-import { render, screen, fireEvent, act } from '@testing-library/react';
-import { ExportModal } from './ExportModal';
+import { act, fireEvent, render, screen } from '@testing-library/react';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { canopeeStore } from '@/store';
 import { resetStores } from '@/test/resetStores';
+import { ExportModal } from './ExportModal';
 
 beforeEach(() => {
   act(() => {
     canopeeStore.getState().newOrg('Acme', 'team-topologies');
     canopeeStore.getState().upsertTeam({
-      id: 't-1', name: 'Checkout', mission: 'Win', tags: {}, headcount: { dev: 3 },
+      id: 't-1',
+      name: 'Checkout',
+      mission: 'Win',
+      tags: {},
+      headcount: { dev: 3 },
     });
   });
 });

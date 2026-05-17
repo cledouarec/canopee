@@ -1,8 +1,8 @@
-import { describe, it, expect } from 'vitest';
-import { horizontalMetier } from './horizontal';
-import { verticalFeature } from './vertical';
-import { spotify } from './spotify';
+import { describe, expect, it } from 'vitest';
 import { customFramework } from './custom';
+import { horizontalMetier } from './horizontal';
+import { spotify } from './spotify';
+import { verticalFeature } from './vertical';
 
 describe('framework templates', () => {
   it('horizontal-metier colors by craft dimension', () => {

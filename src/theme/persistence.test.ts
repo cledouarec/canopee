@@ -1,12 +1,7 @@
-import { describe, it, expect } from 'vitest';
-import {
-  loadThemePref,
-  saveThemePref,
-  prefersReducedTransparency,
-  THEME_KEY,
-} from './persistence';
-import { buildCustomTheme } from './customTheme';
+import { describe, expect, it } from 'vitest';
 import { MemoryStorage } from '@/store';
+import { buildCustomTheme } from './customTheme';
+import { loadThemePref, prefersReducedTransparency, saveThemePref, THEME_KEY } from './persistence';
 
 describe('theme preference persistence', () => {
   it('returns null when nothing is stored', () => {
