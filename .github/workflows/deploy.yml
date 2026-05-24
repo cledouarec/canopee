@@ -19,16 +19,16 @@ jobs:
     name: Build (Pages)
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - uses: ./.github/actions/setup
-      - uses: actions/configure-pages@v5
+      - uses: actions/configure-pages@v6
       - name: Build with project-page base
         env:
           VITE_BASE: /canopee/
         run: pnpm build
       - name: Disable Jekyll processing
         run: touch dist/.nojekyll
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v5
         with:
           path: dist
 
@@ -42,4 +42,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
